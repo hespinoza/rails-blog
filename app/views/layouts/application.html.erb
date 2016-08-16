@@ -18,46 +18,25 @@
         <!-- //.hero-body -->
     </header>
 
-<div class="custom-navbar col-lg-12" '>
-  <nav>
-    <ul>
-		<li><a href='#'>NEWS</a></li>
-		<li><a href='#'>REVIEWS</a></li>
-		<li><a href='#'>UNBOXING</a></li>
-		<li><a href='#'>GAMEPLAYS</a></li>
-		<li><a href='#'>CONTACTO</a></li>
-	</ul>
-	</nav>
-</div>
-<div class="social-navbar col-lg-4 col-lg-offset-4">
-	<nav>
-		<li><center><i class="fa fa-facebook-square" aria-hidden="true"></i></center></li>
-		<li><center><i class="fa fa-twitter-square" aria-hidden="true"></i></center></li>
-		<li><center><i class="fa fa-instagram" aria-hidden="true"></i></center></li>
-	</nav>
-</div>
+<%= render "layouts/navbar" %>
 
 <div class="col-lg-12">
   <div class="container">
-  <div class="row">
-  <%= link_to 'New Article', new_article_path %>
+    <div class="row">
+      <a class="btn btn-success" href="<%= new_article_path %>" role="button">Nuevo Articulo</a>
+    </div>
+    <div class="row">
+      <hr>
+        <section id="pinBoot">
+          <%= yield %>
+        </section>
+      <hr>
+    </div>
+    <p>
+      <br>
     </p>
-    <hr>
-    <section id="pinBoot">
-      <%= yield %>
-    </section>
-    <hr>
+
   </div>
-  <p>
-    <br>
-    <br>
-
-  </p>
-
 </div>
-</div>
-
-
-
 </body>
 </html>
