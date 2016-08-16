@@ -14,11 +14,196 @@
  *= require_self
  */
 
+@import 'https://fonts.googleapis.com/css?family=Passion+One:400,700';
+
 html { 
 	height: 100%;
-background: url(http://barcade.vg/wp-content/uploads/2016/08/BG.jpg) no-repeat fixed; 
+background: url(../BG-horizon.jpg) no-repeat fixed; 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+}
+
+header.hero {
+  display: table;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/bg-hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+@media (max-width: 991px) {
+  header.hero {
+    margin-top: 65px;
+  }
+}
+
+@media (min-width: 992px) {
+  header.hero {
+    height: calc(100% - 65px);
+  }
+}
+
+header.hero:before {
+  position: absolute;
+  content: '';
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+}
+
+header.hero .pattern-overlay {
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/bg-pattern.png');
+  background-repeat: repeat;
+}
+
+header.hero .hero-body {
+  position: relative;
+  z-index: 15;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 80px 30px;
+}
+
+@media (min-width: 480px) {
+  header.hero .hero-body {
+    padding: 100px 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  header.hero .hero-body {
+    padding: 50px 200px 50px 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  header.hero .hero-body {
+    padding: 0px 330px 0px 330px;
+  }
+}
+
+header.hero .hero-body .hero-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+header.hero .hero-body .hero-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -4px;
+}
+
+@media (min-width: 600px) {
+  header.hero .hero-body .hero-text h1 {
+    font-size: 58px;
+  }
+}
+
+@media (min-width: 768px) {
+  header.hero .hero-body .hero-text h1 {
+    font-size: 68px;
+  }
+}
+
+header.hero .hero-body .hero-text h1.small {
+  color: #ffffff;
+  font-size: 45px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+@media (min-width: 600px) {
+  header.hero .hero-body .hero-text h1.small {
+    font-size: 58px;
+  }
+}
+
+@media (min-width: 768px) {
+  header.hero .hero-body .hero-text h1.small {
+    font-size: 66px;
+  }
+}
+
+header.hero .hero-body .hero-text h1.small > span.blinker {
+  position: relative;
+}
+
+header.hero .hero-body .hero-text h1.small > span.blinker:before {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  content: '';
+  width: 2px;
+  height: 30px;
+  margin-top: -15px;
+  background-color: #ffffff;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (min-width: 768px) {
+  header.hero .hero-body .hero-text h1.small > span.blinker:before {
+    left: 10px;
+    width: 3px;
+    height: 40px;
+    margin-top: -20px;
+  }
+}
+
+@media (min-width: 992px) {
+  header.hero .hero-body .hero-text h1.small > span.blinker:before {
+    width: 3px;
+    height: 50px;
+    margin-top: -25px;
+  }
+}
+
+header.hero .hero-body .hero-text p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+header.hero .hero-body .hero-text .page-scroll {
+  margin-top: 40px;
+}
+
+
+.custom-navbar li{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 20%;
+      display: block;
+      text-align: center;
+      float: left;
+}
+
+.custom-navbar a{
+	font-family: 'Passion One', cursive;
+	font-size: 2em;
+	text-shadow: 1px 1px black, -1px -1px #333;
+	color: white;
 }
