@@ -1,6 +1,13 @@
     <% @articles.each do |article| %>
-      <article class="white-panel"><img src="<%= article.cover %>" alt="">
-        <h4><a href="#"><%= article.name %></a></h4>
-        <p><%= raw article.body %></p>
+      <article class="white-panel">
+      	<% if article.cover.nil? || article.cover.empty? %>
+      		<div class="embed-responsive embed-responsive-16by9">
+      			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vqGyJR-M5D4" allowfullscreen></iframe>
+      		</div>
+      	<%else%>
+      		<img src="<%= article.cover %>" alt="">
+      	<% end %>
+        	<h4><a href="#"><%= article.name %></a></h4>
+        	<p><%= raw article.body %></p>
       </article>
     <% end %>
