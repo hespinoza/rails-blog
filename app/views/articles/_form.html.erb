@@ -22,6 +22,16 @@
     <%= f.text_field :cover, 'class' => 'custom-form' %>
   </div>
   <div class="form-group">
+    <%= f.label :youtube, "Video de Cabecera" %> (Inserte sólo el id del video de Youtube ejemplo: https://www.youtube.com/watch?v=<b>oAPdNKTrBYA</b> , sólo si el campo anterior de imagen de cabecera está vacío)
+    <br>
+    <%= f.text_field :youtube, 'class' => 'custom-form' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sinopsis, "Sinopsis de la Nota" %> Este es el texto que sale en la pagina principal, no debe ser muy extenso y que trate de llamar la atención.
+    <br>
+    <%= f.cktext_area :sinopsis, 'class' => 'custom-form', :ckeditor => {:toolbar => 'mini'} %>
+  </div>
+  <div class="form-group">
     <%= f.label :body, "Cuerpo de la Nota" %><br>
     <%= f.cktext_area :body, 'class' => 'custom-form', :ckeditor => {:toolbar => 'mini'} %>
   </div>
