@@ -270,3 +270,7 @@ stylize any heading tags withing white-panel below
   width: 10%;
   height: auto;
 }
+
+.custom-form{
+  color: black;
+}
