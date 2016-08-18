@@ -281,3 +281,6 @@ stylize any heading tags withing white-panel below
 .title{
   color: yellow;
 }
+.body-format{
+  font-size: 1.2em;
+}

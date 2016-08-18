@@ -1,3 +1,23 @@
-<% @articles.each do |a| %>
-	<li><%= a.name %></li>
-<% end %>
+<div class="jumbotron custom-form">
+	<div class="container">
+		<table class="table table-hover">
+			<tr>
+				<th>Estado</th>
+				<th>Titulo</th>
+				<th>Categoria</th>
+				<th>Fecha</th> 
+				<th>Acciones</th>
+			</tr>
+			<% @articles.each do |a| %>
+				<tr>
+					<td class="success">Publicado</td>
+					<td><%= a.name %></td>
+					<td><%= a.category %></td> 
+					<td><%= a.created_at.to_date %></td>
+					<td><%= link_to 'Ver', a %> | <%= link_to 'Editar', edit_article_path(a) %> | <%= link_to 'Enviar', edit_article_path(a) %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>	

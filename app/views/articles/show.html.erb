@@ -15,10 +15,10 @@
 		<div class="col-lg-4 col-lg-offset-8">
 			Por: <%= @article.user.email %>
 		</div>
-		<div class="col-lg-10 col-lg-offset-1">
-				<h4>
+		<div class="body-format col-lg-10 col-lg-offset-1">
+				
 				<%= raw @article.body %>
-				</h4>
+				
 		</div>
 
 		<% if user_signed_in? && (current_user.id == @article.user.id) %>
