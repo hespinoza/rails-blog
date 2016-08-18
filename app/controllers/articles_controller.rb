@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -66,6 +66,26 @@ class ArticlesController < ApplicationController
     @articles = Article.all.my_articles(@user_id).from_new
   end
 
+  def news
+    @articles = Article.all.news.from_new
+    render "index"
+  end
+
+  def reviews
+    @articles = Article.all.reviews.from_new
+    render "index"
+  end
+
+  def unboxing
+    @articles = Article.all.unboxing.from_new
+    render "index"
+  end
+
+  def gameplays
+    @articles = Article.all.gameplays.from_new
+    render "index"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -74,6 +94,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:name, :cover, :body, :sinopsis, :youtube)
+      params.require(:article).permit(:name, :cover, :body, :sinopsis, :youtube, :category)
     end
 end
