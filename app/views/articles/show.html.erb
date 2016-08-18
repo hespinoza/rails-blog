@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">	
+	<div class="show-container col-lg-8 col-lg-offset-2">
+		<div class="col-lg-12">
+			<% if @article.cover.nil? || @article.cover.empty? %>
+      			<div class="embed-responsive embed-responsive-16by9">
+      				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= @article.youtube %>" allowfullscreen></iframe>
+      			</div>
+      		<%else%>
+				<img src="<%= @article.cover %>">
+			<% end %>
+		</div>
+		<div class="title col-lg-12">
+			<center><h1><%= @article.name %></h1></center>
+		</div>
+		<div class="col-lg-4 col-lg-offset-8">
+			Por: <%= @article.user.email %>
+		</div>
+		<div class="col-lg-10 col-lg-offset-1">
+				<h4>
+				<%= raw @article.body %>
+				</h4>
+		</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @article.name %>
-</p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= @article.cover %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= raw @article.body %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+		<% if user_signed_in? && (current_user.id == @article.user.id) %>
+			<div class="col-lg-3 col-lg-offset-9">
+			<h5>
+				<%= link_to 'Editar', edit_article_path(@article) %>
+			</h5>
+		</div>
+		<% end %>
+	</div>
+</div>
