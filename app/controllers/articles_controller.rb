@@ -1,5 +1,5 @@
  class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish, :revise]
 
   # GET /articles
   # GET /articles.json
@@ -70,23 +70,44 @@
   end
 
   def news
-    @articles = Article.all.news.from_new
+    @articles = Article.all.news.published.from_new
     render "index"
   end
 
   def reviews
-    @articles = Article.all.reviews.from_new
+    @articles = Article.all.reviews.published.from_new
     render "index"
   end
 
   def unboxing
-    @articles = Article.all.unboxing.from_new
+    @articles = Article.all.unboxing.published.from_new
     render "index"
   end
 
   def gameplays
-    @articles = Article.all.gameplays.from_new
+    @articles = Article.all.gameplays.published.from_new
     render "index"
+  end
+
+  def to_revise
+    @created_articles = Article.all.created
+    @published_articles = Article.all.published
+    @unpublished_articles = Article.all.unpublished
+  end
+
+  def publish
+    @article.publish!
+    redirect_to to_revise_path
+  end
+
+  def unpublish
+    @article.unpublish!
+    redirect_to to_revise_path
+  end
+
+  def revise
+    @article.revise!
+    redirect_to to_revise_path
   end
 
   private

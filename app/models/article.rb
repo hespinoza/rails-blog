@@ -11,17 +11,16 @@ class Article < ActiveRecord::Base
 	scope :gameplays, -> { where("category = 'gameplays'") }
 
 	aasm column: "state" do
-  		state :new, initial: true
-  		state :revised
+  		state :created, initial: true
   		state :published
   		state :unpublished
 
   		event :revise do
-  			transitions from: :new, to: :revised
+  			transitions from: :unpublished, to: :created
   		end
 
   		event :publish do
-  			transitions from: :revised, to: :published
+  			transitions from: :created, to: :published
   		end
 
   		event :unpublish do

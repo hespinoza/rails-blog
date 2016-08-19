@@ -1,6 +1,9 @@
 <div class="row">
-      <a class="btn btn-default" href="<%= edit_user_registration_path %>" role="button"><i class="fa fa-user" aria-hidden="true"></i> <%= current_user.email %></a>
-      <a class="btn btn-warning" href="<%= my_articles_path %>" role="button">Mis Articulos</a>
-      <a class="btn btn-success" href="<%= new_article_path %>" role="button">Nuevo Articulo</a>
-        <button class="btn btn-danger"><%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete %></button>
-    </div>
+	<a class="btn btn-default" href="<%= edit_user_registration_path %>" role="button"><i class="fa fa-user" aria-hidden="true"></i> <%= current_user.email %></a>
+	<a class="btn btn-warning" href="<%= my_articles_path %>" role="button">Mis Articulos</a>
+	<a class="btn btn-success" href="<%= new_article_path %>" role="button">Nuevo Articulo</a>
+	<button class="btn btn-danger"><%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete %></button>
+	<% if current_user.role == "administrator" %>
+		<a class="btn btn-info" href="<%= to_revise_path %>" role="button">Gestión de Artículos</a>
+	<% end %>
+</div>

@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818215905) do
+ActiveRecord::Schema.define(version: 20160819045954) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name"
     t.string   "cover"
     t.text     "body"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "youtube"
     t.text     "sinopsis"
     t.string   "category"
     t.integer  "visits_count", default: 0
-    t.string   "state",        default: "new"
     t.integer  "user_id"
+    t.string   "state",        default: "created"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"

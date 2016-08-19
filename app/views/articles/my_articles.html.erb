@@ -10,19 +10,15 @@
 			</tr>
 			<% @articles.each do |a| %>
 				<tr>
-					<td class="<% if a.state == "new" %>
+					<td class="<% if a.state == "created" %>
 									warning
-								<% elsif a.state == "revised" %>
-									info
 								<% elsif a.state == "published" %>
-									success
+									info
 								<% elsif a.state == "unpublished" %>
 									danger
 								<% end %>">
-						<%if a.state == "new" %>
+						<%if a.state == "created" %>
 							Revisión Pendiente
-						<% elsif a.state == "revised" %>
-							Revisado
 						<% elsif a.state == "published" %>
 							Publicado
 						<% elsif a.state == "unpublished" %>

@@ -1,0 +1,84 @@
+<div class="jumbotron custom-form">
+	<div class="container">
+
+		<ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="#menu1">Sin Publicar</a></li>
+		    <li><a data-toggle="tab" href="#menu2">Publicado</a></li>
+		    <li><a data-toggle="tab" href="#menu3">Despublicado</a></li>
+		</ul>
+
+  		<div class="tab-content">
+    		<div id="menu1" class="tab-pane fade in active">
+      			<div class="row">
+      				<table class="table table-hover">
+						<tr>
+							<th>Titulo</th>
+							<th>Fecha</th> 
+							<th>Categoria</th>
+							<th>Autor</th>
+							<th>Acciones</th>
+						</tr>
+						<% @created_articles.each do |ca| %>
+							<tr>
+								<td><%= ca.name %></td>
+								<td><%= ca.created_at.to_date %></td>
+								<td><%= ca.category %></td>
+								<td><%= ca.user.name %> <%= ca.user.lastname %></td> 
+								<td><%= link_to 'Ver', ca %> | <%= link_to 'Publicar', publish_article_path(ca.id) %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+      			</div>
+    		</div>
+
+    		<div id="menu2" class="tab-pane fade">
+   				<div class="row">
+   					<table class="table table-hover">
+						<tr>
+							<th>Titulo</th>
+							<th>Fecha</th> 
+							<th>Categoria</th>
+							<th>Autor</th>
+							<th>Acciones</th>
+						</tr>
+						<% @published_articles.each do |pa| %>
+							<tr>
+								<td><%= pa.name %></td>
+								<td><%= pa.created_at.to_date %></td>
+								<td><%= pa.category %></td>
+								<td><%= pa.user.name %> <%= pa.user.lastname %></td> 
+								<td><%= link_to 'Ver', pa %> | <%= link_to 'Despublicar', unpublish_article_path(pa.id) %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+   				</div>
+    		</div>
+
+    		<div id="menu3" class="tab-pane fade">
+   				<div class="row">
+   					<table class="table table-hover">
+						<tr>
+							<th>Titulo</th>
+							<th>Fecha</th> 
+							<th>Categoria</th>
+							<th>Autor</th>
+							<th>Acciones</th>
+						</tr>
+						<% @unpublished_articles.each do |ua| %>
+							<tr>
+								<td><%= ua.name %></td>
+								<td><%= ua.created_at.to_date %></td>
+								<td><%= ua.category %></td>
+								<td><%= ua.user.name %> <%= ua.user.lastname %></td> 
+								<td><%= link_to 'Ver', ua %> | <%= link_to 'Habilitar', revise_article_path(ua.id) %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+   				</div>
+    		</div>
+  		</div>
+	</div>
+</div>	
