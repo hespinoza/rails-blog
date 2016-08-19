@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'reviews' => 'articles#reviews', :as => :reviews
   get 'unboxing' => 'articles#unboxing', :as => :unboxing
   get 'gameplays' => 'articles#gameplays', :as => :gameplays
+  get 'profile' => 'users#profile', :as => :my_profile
   root 'articles#index'
 
   
