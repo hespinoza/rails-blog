@@ -4,7 +4,7 @@
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.from_new
+    @articles = Article.all.published.from_new
   end
 
   # GET /articles/1

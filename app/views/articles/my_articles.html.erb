@@ -10,11 +10,29 @@
 			</tr>
 			<% @articles.each do |a| %>
 				<tr>
-					<td class="success">Publicado</td>
+					<td class="<% if a.state == "new" %>
+									warning
+								<% elsif a.state == "revised" %>
+									info
+								<% elsif a.state == "published" %>
+									success
+								<% elsif a.state == "unpublished" %>
+									danger
+								<% end %>">
+						<%if a.state == "new" %>
+							Revisión Pendiente
+						<% elsif a.state == "revised" %>
+							Revisado
+						<% elsif a.state == "published" %>
+							Publicado
+						<% elsif a.state == "unpublished" %>
+							Eliminado
+						<% end %>
+					</td>
 					<td><%= a.name %></td>
 					<td><%= a.category %></td> 
 					<td><%= a.created_at.to_date %></td>
-					<td><%= link_to 'Ver', a %> | <%= link_to 'Editar', edit_article_path(a) %> | <%= link_to 'Enviar', edit_article_path(a) %>
+					<td><%= link_to 'Ver', a %> | <%= link_to 'Editar', edit_article_path(a) %>
 					</td>
 				</tr>
 			<% end %>
