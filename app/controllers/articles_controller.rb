@@ -4,7 +4,7 @@
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.published.from_new
+    @articles = Article.all.published.from_new.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /articles/1
@@ -70,22 +70,22 @@
   end
 
   def news
-    @articles = Article.all.news.published.from_new
+    @articles = Article.all.news.published.from_new.paginate(page: params[:page], per_page: 20)
     render "index"
   end
 
   def reviews
-    @articles = Article.all.reviews.published.from_new
+    @articles = Article.all.reviews.published.from_new.paginate(page: params[:page], per_page: 20)
     render "index"
   end
 
   def unboxing
-    @articles = Article.all.unboxing.published.from_new
+    @articles = Article.all.unboxing.published.from_new.paginate(page: params[:page], per_page: 20)
     render "index"
   end
 
   def gameplays
-    @articles = Article.all.gameplays.published.from_new
+    @articles = Article.all.gameplays.published.from_new.paginate(page: params[:page], per_page: 20)
     render "index"
   end
 
