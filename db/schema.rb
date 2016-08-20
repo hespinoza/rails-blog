@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819045954) do
+ActiveRecord::Schema.define(version: 20160820020406) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160819045954) do
     t.integer  "visits_count", default: 0
     t.integer  "user_id"
     t.string   "state",        default: "created"
+    t.string   "slug"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"

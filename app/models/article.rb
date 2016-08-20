@@ -1,5 +1,8 @@
 class Article < ActiveRecord::Base
 	include AASM
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
 	
 	belongs_to :user
 
