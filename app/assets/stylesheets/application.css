@@ -278,6 +278,9 @@ stylize any heading tags withing white-panel below
 .show-container{
   background-color: black;
 }
+.show-container{
+  color: white;
+}
 .title{
   color: yellow;
 }
