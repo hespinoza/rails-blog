@@ -36,16 +36,9 @@
     <%= f.cktext_area :body, :ckeditor => {:toolbar => 'mini'}, 'class' => 'form-control' %>
   </div>
   <h6>Si va a adjuntar un video, las dimensiones deben ser: 560x315</h6>
-  <div class="form-group col-lg-6 col-md-6">
+  <div class="form-ggroup col-lg-6 col-md-6">
     <%= f.label :category, "Categoria" %>
-    <br>
-    <select id="article_category" name="article[category]" class="form-control">
-      <option value="nil"> </option>
-      <option value="news">News</option>
-      <option value="reviews">Reviews</option>
-      <option value="unboxing">Unboxing</option>
-      <option value="gameplays">Gameplay</option>
-    </select>
+    <%= collection_select( :article, :category, Category.all, :name, :name, {:include_blank => true}, { :multiple => false, :class => "form-control" }) %>
   </div>
   <div class="actions form-group col-lg-6 col-md-6">
     <center>
